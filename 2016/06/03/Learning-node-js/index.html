@@ -18,7 +18,7 @@
 首先,Node.js是用google的V8引擎写的,所以,node可以用js的语法,省去一些其它的学习成本,比如php(不能学世界上最好的语言真的好可惜!)逃).
 其次,Node.js实现后端是靠一些api,就是封装好的函数实现的,所以,需要了解一些基本的API,和后端的方法
 最后,也是最重要的,Node.js上面有很多别人写好的模块,很好用的,很火的,比如Express">
-<meta property="og:updated_time" content="2016-06-19T15:15:44.032Z">
+<meta property="og:updated_time" content="2016-06-19T15:25:13.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning node.js">
 <meta name="twitter:description" content="为什么要学Node.js
@@ -105,8 +105,14 @@
 <li>首先,Node.js是用google的V8引擎写的,所以,node可以用js的语法,省去一些其它的学习成本,比如php(不能学世界上最好的语言真的好可惜!)逃).</li>
 <li>其次,Node.js实现后端是靠一些api,就是封装好的函数实现的,所以,需要了解一些基本的API,和后端的方法</li>
 <li><p>最后,也是最重要的,Node.js上面有很多别人写好的模块,很好用的,很火的,比如Express,比如jade(现在改名了.是个快速生成HTML模板的模块.),但是要是把精力都浪费在追逐这些东西上,那可没头.无论模块怎么写,都是要遵循Node.js的核心,比如function(err, callback){}.所以有<strong>一些核心API,一定要知道</strong>,剩下的就到时候现查表就是了,怎么用都写的很明白.</p>
-<p>引用知乎用户<a href="https://www.zhihu.com/question/21567720" target="_blank" rel="external">@itlr的答案</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">起步：熟悉REPL</span><br><span class="line">[REPL Node.js](https://link.zhihu.com/?target=https%3A//nodejs.org/api/repl.html)</span><br><span class="line">如果你没有Javascript基础，应该在这个时候用好REPL熟悉语法</span><br><span class="line"></span><br><span class="line">常用调用</span><br><span class="line">[Global Objects](https://link.zhihu.com/?target=https%3A//nodejs.org/api/globals.html) / [util](https://link.zhihu.com/?target=https%3A//nodejs.org/api/util.html)</span><br><span class="line"></span><br><span class="line">核心概念</span><br><span class="line">[Timers](https://link.zhihu.com/?target=https%3A//nodejs.org/api/timers.html) /[Buffer](https://link.zhihu.com/?target=https%3A//nodejs.org/api/buffer.html) / [Events](https://link.zhihu.com/?target=https%3A//nodejs.org/api/events.html) / [Stream](https://link.zhihu.com/?target=https%3A//nodejs.org/api/stream.html) / [Modules](https://link.zhihu.com/?target=https%3A//nodejs.org/api/modules.html) / [Errors](https://link.zhihu.com/?target=https%3A//nodejs.org/api/errors.html)</span><br><span class="line"></span><br><span class="line">在此基础上再去练习</span><br><span class="line"></span><br><span class="line">[File System](https://link.zhihu.com/?target=https%3A//nodejs.org/api/fs.html) / [HTTP](https://link.zhihu.com/?target=https%3A//nodejs.org/api/http.html)</span><br><span class="line">ps.侵删</span><br></pre></td></tr></table></figure>
+<hr>
+<p>  引用知乎用户<a href="https://www.zhihu.com/question/21567720" target="_blank" rel="external">@itlr的答案</a><br>  起步：熟悉REPL<br>  <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/repl.html" target="_blank" rel="external">REPL Node.js</a><br>  如果你没有Javascript基础，应该在这个时候用好REPL熟悉语法</p>
+<p>  常用调用<br>  <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/globals.html" target="_blank" rel="external">Global Objects</a> / <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/util.html" target="_blank" rel="external">util</a></p>
+<p>  核心概念<br>  <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/timers.html" target="_blank" rel="external">Timers</a> /<a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/buffer.html" target="_blank" rel="external">Buffer</a> / <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/events.html" target="_blank" rel="external">Events</a> / <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/stream.html" target="_blank" rel="external">Stream</a> / <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/modules.html" target="_blank" rel="external">Modules</a> / <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/errors.html" target="_blank" rel="external">Errors</a></p>
+<p>  在此基础上再去练习</p>
+<p>  <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/fs.html" target="_blank" rel="external">File System</a> / <a href="https://link.zhihu.com/?target=https%3A//nodejs.org/api/http.html" target="_blank" rel="external">HTTP</a></p>
+<p>  ps.侵删</p>
+<hr>
 </li>
 </ul>
 <h2 id="我摸索出来的学习路线是"><a href="#我摸索出来的学习路线是" class="headerlink" title="我摸索出来的学习路线是:"></a>我摸索出来的学习路线是:</h2><ol>
@@ -115,7 +121,7 @@
 <li>做做小项目,熟悉热门模块.</li>
 </ol>
 <h2 id="教程和书目推荐"><a href="#教程和书目推荐" class="headerlink" title="教程和书目推荐"></a>教程和书目推荐</h2><ul>
-<li><a href="www.nodeschool.io">nodeschool</a> 刚开始推荐nodeschool.io,这里能熟悉基本的api的使用,比如fs模块等..</li>
+<li><a href="www.nodeschool.io">nodeschool</a> <strong>刚开始推荐</strong>nodeschool.io,这里能熟悉基本的api的使用,比如fs模块等..</li>
 <li><a href="http://nodeapi.ucdok.com/#/api/" target="_blank" rel="external">nodejs中文API</a> 中文API的熟悉下,如果英文不好先看一遍中文,在看英文能好过点,就像那句话:学渣没事开什么学霸模式,不仅卡而且还费电,哈哈,反正我是掺着看…</li>
 <li><a href="https://nodejs.org/dist/latest-v6.x/docs/api/" target="_blank" rel="external">Node.js官网</a> 一些东西需要重新看英文的原文 ,避免信息损失</li>
 <li><a href="https://www.quora.com/What-is-the-best-way-of-learning-Node-js" target="_blank" rel="external">quora高票答案</a> 都是英文看着费劲,但是资料范围很广.</li>
@@ -134,7 +140,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yrok.github.io/blog/blog/2016/06/03/Learning-node-js/" data-id="cipmqpcgi000096wvnr55pzhk" class="article-share-link">分享到</a>
+        <a data-url="http://yrok.github.io/blog/blog/2016/06/03/Learning-node-js/" data-id="cipmqvqbj0001gvwvwls8k69g" class="article-share-link">分享到</a>
       
 
       
