@@ -71,6 +71,57 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-学习javascript数据结构与算法笔记-一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/08/17/学习javascript数据结构与算法笔记-一/" class="article-date">
+  <time datetime="2016-08-17T14:52:10.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/08/17/学习javascript数据结构与算法笔记-一/">学习javascript数据结构与算法笔记(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经过一段时间的javascript的学习,最开始的问题是不会使用各个基础js的Api用法,但是等熟悉之后就发现,算法和数据结构成了自己的瓶颈,所以经过决心把这本学习<em>javascript数据结构与算法</em>好好看看.<br>然而突然发现js高级程序设计还没有看明白呢…逃)<br>刚开始看冒泡排序法感觉特别简单,所以就突发联想,想要把数据的计算排列实现过程实现一下.用动画的形式.<br>同时也可以熟悉下js简单的程序设计模式的使用方法.</p>
+<h4 id="刚开始遇到的问题"><a href="#刚开始遇到的问题" class="headerlink" title="刚开始遇到的问题"></a>刚开始遇到的问题</h4><ol>
+<li>最开始想要在双重循环内直接实现数组的动态显示,但是双重循环下的作用域和事件计算比较复杂,再浪费了几个晚上后,决定放弃,换一种实现的方法.</li>
+<li>在for循环内嵌套setTimeout或者setInterval时,<strong>for循环会跳过这两个延时程序</strong>,从而导致程序运行的结构和自己设想的不一样.而解决方法就是<strong>在for循环内嵌套自执行函数</strong>,在循环运行后,直接获取相应的i,自动执行,以避免for直接执行到最后,从而导致结果异常.并且,最后的时间需要乘以相应的i.</li>
+<li>以前不用设计模式,不注意程序结构写出来的程序就跟shit一样..虽然现在也没好到哪里去…</li>
+</ol>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>记录了所有生成的数组,然后把数组切割,然后进行显示,最后用起来很不错,解决了问题.</p>
+<h4 id="新的问题"><a href="#新的问题" class="headerlink" title="新的问题"></a>新的问题</h4><p>彻底弄明白双重循环下的实现方法.再好好看看高程.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.bubbleSort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arraySplice = [];</span><br><span class="line">    <span class="keyword">var</span> length = array.length;</span><br><span class="line">    <span class="comment">/* 初始化临时数组 */</span></span><br><span class="line">    arrayData = arrayData.concat(array);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; length<span class="number">-1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(array[j] &gt; array[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="comment">/* 交换,拼接数组 */</span></span><br><span class="line">                _swap(j, j+<span class="number">1</span>);</span><br><span class="line">                arrayData = arrayData.concat(array);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 注意自执行函数的用法和最后的500*k,以免时间不对 */</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; arrayData.length/length; k++) &#123;</span><br><span class="line">        (<span class="function"><span class="keyword">function</span>(<span class="params">k</span>)</span>&#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                arraySplice[k] = arrayData.slice(k*length, (k+<span class="number">1</span>)*length);</span><br><span class="line">                _refresh(arraySplice[k], arraySplice[k<span class="number">-1</span>], k);</span><br><span class="line">            &#125;, <span class="number">500</span>*k);</span><br><span class="line">        &#125;)(k)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://runjs.cn/code/uhdusz9k" target="_blank" rel="external">源码</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yrok.github.io/blog/blog/2016/08/17/学习javascript数据结构与算法笔记-一/" data-id="cirz1zdvl0009uewvnah5ssde" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yrok.github.io/blog/blog/2016/08/17/学习javascript数据结构与算法笔记-一/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-The way to name CSS BEM &amp; OOCSS &amp; NEC" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2016/06/06/The way to name CSS BEM & OOCSS & NEC/" class="article-date">
@@ -146,7 +197,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yrok.github.io/blog/blog/2016/06/06/The way to name CSS BEM & OOCSS & NEC/" data-id="cipmqvqb90000gvwvs15i6tti" class="article-share-link">分享到</a>
+        <a data-url="http://yrok.github.io/blog/blog/2016/06/06/The way to name CSS BEM & OOCSS & NEC/" data-id="cirz1zdu70001uewv6nb3dtu5" class="article-share-link">分享到</a>
       
 
       
@@ -191,7 +242,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yrok.github.io/blog/blog/2016/06/03/responsive & media query/" data-id="cipmqvqby0006gvwvdiyuj6w5" class="article-share-link">分享到</a>
+        <a data-url="http://yrok.github.io/blog/blog/2016/06/03/responsive & media query/" data-id="cirz1zdvq000auewv6hvaqowc" class="article-share-link">分享到</a>
       
 
       
@@ -269,7 +320,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yrok.github.io/blog/blog/2016/06/03/Learning-node-js/" data-id="cipmqvqbj0001gvwvwls8k69g" class="article-share-link">分享到</a>
+        <a data-url="http://yrok.github.io/blog/blog/2016/06/03/Learning-node-js/" data-id="cirz1zdtx0000uewv9pbgqxj4" class="article-share-link">分享到</a>
       
 
       
@@ -314,7 +365,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yrok.github.io/blog/blog/2016/04/10/javasscript-binary-tree-学习笔记/" data-id="cipmqvqbs0003gvwvvtp3y8dr" class="article-share-link">分享到</a>
+        <a data-url="http://yrok.github.io/blog/blog/2016/04/10/javasscript-binary-tree-学习笔记/" data-id="cirz1zdvi0007uewvcztiahe3" class="article-share-link">分享到</a>
       
 
       
@@ -359,7 +410,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yrok.github.io/blog/blog/2016/04/08/react学习笔记/" data-id="cipmqvqbu0004gvwvx4ct3qef" class="article-share-link">分享到</a>
+        <a data-url="http://yrok.github.io/blog/blog/2016/04/08/react学习笔记/" data-id="cirz1zdvf0006uewvgh71jclv" class="article-share-link">分享到</a>
       
 
       
@@ -405,7 +456,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -415,6 +466,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2016/08/17/学习javascript数据结构与算法笔记-一/">学习javascript数据结构与算法笔记(一)</a>
+          </li>
         
           <li>
             <a href="/blog/2016/06/06/The way to name CSS BEM & OOCSS & NEC/">The way to name CSS--BEM &amp; OOCSS &amp; NEC</a>
@@ -430,10 +485,6 @@
         
           <li>
             <a href="/blog/2016/04/10/javasscript-binary-tree-学习笔记/">javasscript binary tree 学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/04/08/react学习笔记/">react学习笔记</a>
           </li>
         
       </ul>
